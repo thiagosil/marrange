@@ -1,0 +1,42 @@
+<div class="px-8 py-12 mx-auto">
+  <p id="notice"><%= notice %></p>
+
+  <h1 class="text-2xl text-center py-2">Orçamento</h1>
+</div>
+<div class="px-8 py-12 mx-auto">
+  <% @categories.each do |category| %>
+    <div class="p-4">
+      <h1 class="text-2xl text-center">
+        <%= category.name %>
+      </h1>
+    </div>  
+    <table class="table-fixed w-9/12 block">
+      <thead>
+        <tr>
+          <th class="w-1/2 px-4 py-2">Nome</th>
+          <th class="w-1/6 px-4 py-2">Estimado</th>
+          <th class="w-1/6 px-4 py-2">Gasto</th>
+          <th class="w-1/6 px-4 py-2">Pago</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+          <tr>
+
+            <% category.expenses.each do |expense| %>
+              <tr>
+                <td class="border px-4 py-2"><%= expense.name %></td>
+                <td class="border px-4 py-2"><%= expense.estimated %></td>
+                <td class="border px-4 py-2"><%= expense.spent %></td>
+                <td class="border px-4 py-2"><%= expense.paid %></td>
+              </tr>
+            <% end %>
+          </tr>
+        
+      </tbody>
+    </table>
+
+  <% end %>
+</div>
+
